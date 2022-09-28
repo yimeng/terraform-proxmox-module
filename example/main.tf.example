@@ -1,0 +1,18 @@
+terraform {
+  required_providers {
+    proxmox = {
+      source  = "telmate/proxmox"
+      version = ">2.9.3"
+    }
+  }
+}
+
+module "proxmox" {
+  source         = "../../terraform/proxmox/vm/modules/"
+  clone_template = "ubuntu-template-yimeng"
+  vm_name        = "testaa"
+  vm_count       = 1
+  cpu            = 4
+  memory         = 8192
+}
+
